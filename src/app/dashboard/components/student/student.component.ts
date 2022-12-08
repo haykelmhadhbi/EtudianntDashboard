@@ -8,6 +8,11 @@ import { ServiceStudentService } from '../../service/service-student.service';
 })
 
 export class StudentComponent implements OnInit {
+page:number=1;
+count:number=0;
+tableSize:number=5;
+tablesSizes:any=[1,2,3,4];
+titles="pagination"
   
   title = 'STUDENT DASHBOARD'
   studentDetails:  any [];
@@ -131,6 +136,15 @@ export class StudentComponent implements OnInit {
       }
     )
 
+  }
+  onTableDataChange(event:any){
+    this.page=event;
+  }
+  onTableSizeChange(event:any):void{
+    this.tableSize=event.target.value;
+    this.page=1;
+    // this.getStudentsDetails();
+   
   }
 
 

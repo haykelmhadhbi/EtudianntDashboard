@@ -14,6 +14,7 @@ import { SharedModule } from './shared/module/shared/shared.module';
 import { NavStudComponent } from './dashboard/components/nav-stud/nav-stud.component';
 import { IStudent } from './dashboard/model/student';
 import { OptionComponent } from './dashboard/components/option/option.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { OptionComponent } from './dashboard/components/option/option.component'
     FormsModule,
     HttpClientModule,
     CommonModule,
+    NgxPaginationModule
     
     
 

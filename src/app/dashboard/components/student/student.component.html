@@ -190,7 +190,12 @@
   </div>
   <div class="container-fluid">
   <div class="mt-5"><!--margin top5-->
-    <table class="table table-bordered">
+    <div>
+      <select (change)="onTableSizeChange($event)">
+      <option *ngFor="let size of tablesSizes">{{size}}</option>
+    </select>
+    </div>
+     <table class="table table-bordered">
         <thead class="table table-striped table-dark">
             <tr>
                 <th>  idEtudiant </th>
@@ -210,7 +215,7 @@
 
         </thead>
         <tbody class="tbody">
-            <tr *ngFor="let student of studentDetails ">
+            <tr *ngFor="let student of studentDetails | paginate:{itemsPerPage:tableSize,currentPage:page,totalItems:count};let i=index">
                 <td> {{student.idEtudiant}} </td>
                 <td> {{student.prenomE | uppercase}} </td>
                 <td> {{student.nomE | uppercase}} </td>
@@ -225,18 +230,12 @@
                 <td>
                   <button type="button" class="btn btn-outline-danger mb-2" (click)="deleteStudent(student)">Delete</button>
                 </td>
-                      
-                 
-                
-             
-              
-
-                
-
             </tr>
-
         </tbody>
-    </table>
+    </table> 
+     <div>
+      <pagination-controls previousLabel="Precedent" nextLabel="Suivant"(pageChange)="onTableDataChange($event)"></pagination-controls>
+    </div>
 </div> 
 </div>
 </section>

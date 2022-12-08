@@ -1,0 +1,27 @@
+.titreCss{
+    color: #300e21;
+    font-size: small;
+    width: 50% ;
+    margin: 0 auto;
+    text-align: center;
+    border-color: aqua;
+    font-style:  italic  ;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.tit {
+    color :#2c0538;
+    font-size:30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.sexname {
+    color : green;
+    font-size:10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+}

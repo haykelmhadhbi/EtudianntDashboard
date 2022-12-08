@@ -1,0 +1,345 @@
+<div class="container">
+
+ <section class="h-100 ">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <div class="card mt-2" style="align-items: center;">
+                  <h1 [ngClass]="'tit'">{{title}}</h1>
+              </div>
+                <form #f="ngForm"  #registerForm="ngForm" (ngSubmit)="register(registerForm) ">
+
+
+                  <div class="form-group">
+                    <label for="prenomE">Student FirstName :</label>
+                    <input type="text" #prenomE="ngModel" ngModel (ngModel)="prenomE" name="prenomE" id="prenomE" class="form-control" minlength="3" maxlength="15" required pattern="[a-zA-Z]*" placeholder="Student prenomE">
+                    
+                    <div *ngIf="prenomE.invalid && prenomE.touched ">
+                      <div *ngIf="prenomE.errors?.['required']">
+                        <div class="alert alert-danger" role="alert">
+                          champ obligatoire
+                          </div>
+                        </div>
+                    
+                      <div *ngIf="prenomE.errors?.['pattern']">
+                        <div class="alert alert-danger" role="alert">
+                          your FirstName must not contain a characters or number
+                          </div>
+                      </div>
+                      
+                      
+                      </div>
+                  </div>
+        
+                  <div class="form-group">
+                    <label for="nomE">Student LastName :</label>
+                    <input type="text"  #nomE="ngModel" (ngModel)="nomE" name="nomE" id="nomE" minlength="3" maxlength="15"   pattern="[a-zA-Z]*" class="form-control"
+                      placeholder="Student nomE" required>
+
+                      <div *ngIf="nomE.invalid && nomE.touched ">
+                        <div *ngIf="nomE.errors?.['required']">
+                          <div class="alert alert-danger" role="alert">
+                            champ obligatoire
+                            </div>
+                          </div>
+                      
+                        <div *ngIf="nomE.errors?.['pattern']">
+                          <div class="alert alert-danger" role="alert">
+                            your Name must not contain a characters or number
+                            </div>
+                        </div>
+                        
+                        
+                        </div>
+                  </div>
+        
+                <div class="form-group">
+                  <label for="nomE">Student Email :</label>
+
+                  <div class="input-group mb-0">
+                    <input type="text" #emailE="ngModel" (ngModel)="emailE" name="emailE" id="emailE" maxlength="25" class="form-control "
+                      placeholder="@gmail.com" pattern="[a-z0-9._%+-]+@gmail.com$" required >
+                     
+                      <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+                     
+                    </div>
+                    <div *ngIf="emailE.invalid && emailE.touched ">
+
+                    <div *ngIf="emailE.errors?.['pattern']">
+                      <div class="alert alert-danger" role="alert">
+                        your emailE not Valide
+                        </div>
+                    </div>
+                  </div>
+
+                  </div>
+        
+                    <div class="form-group">
+                      <label for="inputState" >Student Option :</label>
+                      <select class="form-select mt-2" aria-label="Default select example" type="opt" #opt="ngModel" (ngModel)="opt" name="opt" id="opt" class="form-control"  required >
+                        <option value="SE" >SE</option>
+                        <option value="GAMIX">GAMIX</option>
+                        <option value="SIM">SIM</option>
+                        <option value="NIDS">NIDS</option>
+                        <option value="TWIN" selected>TWIN</option>
+                        <option value="SLEAM">SLEAM</option>
+                        <option value="CLOUD">CLOUD</option>
+                        <option value="SAE">SAE</option>
+
+        
+                      </select>
+                      <div *ngIf= "opt.touched ">
+
+                      <div *ngIf="opt.errors?.['required']">
+                        <div class="alert alert-danger" role="alert">
+                          Option obligatoire
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+        
+                    <div class="form-group">
+                      <label class="depart" for="depart">Student department :</label>
+                      <input type="text" #depart="ngModel" (ngModel)="depart" name="depart" id="depart" class="form-control"
+                        placeholder="Student nomDepart" required maxlength="13" pattern="[a-zA-Z]*">
+
+                        <div *ngIf="depart.invalid && depart.touched ">
+                          <div *ngIf="depart.errors?.['required']">
+                            <div class="alert alert-danger" role="alert">
+                              champ obligatoire
+                              </div>
+                            </div>
+                        
+                          <div *ngIf="depart.errors?.['pattern']">
+                            <div class="alert alert-danger" role="alert">
+                              your NameDepartment must not contain a characters or number
+                              </div>
+                          </div>
+                          
+                          
+                          </div>
+                    </div>
+        
+                    <div class="form-group">
+                      <label for="nomE">Student Age :</label>
+                      <input type="text" #ageE="ngModel" (ngModel)="ageE" name="ageE" id="ageE" class="form-control"
+                        placeholder="Number" pattern="[0-9]\d$" required>
+
+                        <div *ngIf="ageE.invalid && ageE.touched ">
+
+                          <div *ngIf="ageE.errors?.['required']">
+                            <div class="alert alert-danger" role="alert">
+                              champ obligatoire
+                              </div>
+                            </div>
+
+                          <div *ngIf="ageE.errors?.['pattern']">
+                            <div class="alert alert-danger" role="alert">
+                              your ageE not Valide
+                              </div>
+                          </div>
+                        </div>
+
+                    </div>
+                     
+                    <div class="radio" *ngFor="let sexe of genders ">
+                          <label  >
+                            <input  name="sexe"  ngModel (ngModel)="selectgender" value= {{sexe}} type="radio" (change)="radioChangeHandeler($event)" class="form-check-input position-static" checked required >{{  sexe  }}
+                          
+                            
+                          </label>
+                    </div>
+
+        
+                    <input type="submit" value="Register" class="btn btn-dark w-100" [disabled]="f.invalid">
+            
+                </form>
+                <br>
+                <div class="item" >
+                  <div class="body"  >
+
+                <div class="input-group" >
+                  <button #getStTea  class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#studentwithTeacher" (click)="getStudentByTeacher()">Set of student by Teacher</button>
+                  <input type="text"  #prenomP [(ngModel)]="studentwithTeacher.prenomP" name="prenomP" id="prenomP" aria-label="First name" class="form-control" placeholder="First Name Teacher">
+                  <input type="text"  #nomP [(ngModel)]="studentwithTeacher.nomP" name="nomP" id="nomP" aria-label="Last name" class="form-control" placeholder="Last Name Teacher">
+              </div>
+                  
+                  </div>
+                </div>
+
+
+                
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+  <div class="mt-5"><!--margin top5-->
+    <table class="table table-bordered">
+        <thead class="table table-striped table-dark">
+            <tr>
+                <th>  idEtudiant </th>
+                <th>  FirstName </th>
+                <th>  LastName </th>
+                <th>  Email </th>
+                <th>  Option </th>
+                <th>  department </th>
+                <th>  Age </th>
+                <th>  Sexe </th>
+                <th>  Edit </th>
+                <th>  Delete </th>
+
+
+
+            </tr>
+
+        </thead>
+        <tbody class="tbody">
+            <tr *ngFor="let student of studentDetails ">
+                <td> {{student.idEtudiant}} </td>
+                <td> {{student.prenomE | uppercase}} </td>
+                <td> {{student.nomE | uppercase}} </td>
+                <td> {{student.emailE }} </td>
+                <td  > {{student.opt}} </td>
+                <td > {{student.depart.nomDepart}} </td>
+                <td> {{student.ageE}} </td>
+                <td [ngStyle]="{color:student.sexe==='Male'? '#3b6945':'#ff9999'}">  {{student.sexe}} </td>
+                <td>
+                  <button type="button" class="btn btn-outline-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(student)">Edit</button>
+               </td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger mb-2" (click)="deleteStudent(student)">Delete</button>
+                </td>
+                      
+                 
+                
+             
+              
+
+                
+
+            </tr>
+
+        </tbody>
+    </table>
+</div> 
+</div>
+</section>
+ 
+<div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Student</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form #updateForm="ngForm" (ngSubmit)="updateStudent()">
+          <div class="form-group">
+            <label for="idEtudiant">Student Id :</label>
+            <input type="text" #idEtudiant [(ngModel)]="studentToUpdate.idEtudiant" name="idEtudiant" disabled id="idEtudiant" class="form-control" placeholder="Student Id">
+          </div>
+
+          <div class="form-group">
+            <label for="prenomE">Student FirstName :</label>
+            <input type="text" #prenomE [(ngModel)]="studentToUpdate.prenomE" name="prenomE" id="prenomE" class="form-control" placeholder="Student prenomE">
+          </div>
+
+          <div class="form-group">
+            <label for="nomE">Student LastName :</label>
+            <input type="text" #nomE [(ngModel)]="studentToUpdate.nomE" name="nomE" id="nomE" class="form-control"
+              placeholder="Student nomE">
+          </div>
+
+        <div class="form-group">
+          <label for="nomE">Student Email :</label>
+
+          <div class="input-group mb-0">
+            <input type="text" #emailE [(ngModel)]="studentToUpdate.emailE" name="emailE" id="emailE" class="form-control"
+              placeholder="@gmail.com">
+              <span class="input-group-text" id="basic-addon2">@gmaitl.com</span>
+            </div>
+          </div>
+
+            <div class="form-group">
+              <label for="inputState" >Student Option :</label>
+              <select type="opt" #opt [(ngModel)]="studentToUpdate.opt" name="opt" id="opt" class="form-control"  required >
+                <option value="SE" selected>SE</option>
+                <option value="GAMIX">GAMIX</option>
+                <option value="SIM">SIM</option>
+                <option value="NIDS">NIDS</option>
+                <option value="TWIN">TWIN</option>
+                <option value="SLEAM">SLEAM</option>
+
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="depart" for="depart">Student department :</label>
+              <input type="text" #depart [(ngModel)]="studentToUpdate.depart" name="depart" id="depart" class="form-control"
+                placeholder="Student nomDepart">
+            </div>
+
+            <div class="form-group">
+              <label for="nomE">Student Age :</label>
+              <input type="text" #ageE [(ngModel)]="studentToUpdate.ageE" name="ageE" id="ageE" class="form-control"
+                placeholder="Number">
+            </div>
+             
+            <div class="radio" *ngFor="let sexe of genders ">
+                  <label  >
+                    <input  name="sexe" [(ngModel)]="studentToUpdate.sexe" value= {{sexe}} type="radio" (change)="radioChangeHandeler($event)" class="form-check-input position-static">{{  sexe  }}
+                  </label>
+            </div>
+            <div class="form-group">
+
+            <input type="submit" value="Update" class="btn btn-dark w-100" >
+                </div>
+        </form>
+        
+      </div>
+   
+    </div>
+  </div>
+</div>
+</div>
+<!-------------------Modal----------------->
+
+<!-- Modal -->
+
+<div class="modal fade" id="studentwithTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">List Student Of {{studentwithTeacher.prenomP}} {{studentwithTeacher.nomP }} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <ul  *ngFor="let student of studentByProf ">
+        <li >Id : {{student.idEtudiant}} 
+          First Name: {{student.prenomE | uppercase}} Laste Name: {{student.nomE | uppercase}} </li>
+  
+        
+      </ul>
+    
+    </div>
+  </div>
+</div>
+<!------>

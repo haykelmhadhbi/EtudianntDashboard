@@ -1,0 +1,8 @@
+<h3> {{title}} </h3>
+
+<select #getStByOpt class="form-select" aria-label="Default select example" type="opt" #opt="ngModel" [(ngModel)]="empSelected" name="opt" id="opt" (ngModelChange)="detectChanges($event) ">
+    
+    <option selected  >{{firstoption}} </option>
+        <option *ngFor="let op of data " [value]="op.opt">{{op.opt}}</option>
+        
+  </select>

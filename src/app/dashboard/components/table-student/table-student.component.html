@@ -28,12 +28,16 @@
             <div class="card-body">
                       <!--<h3> <i >Good Choice</i> </h3>-->
 
-              <select #getStByOpt class="form-select" aria-label="Default select example" type="opt" #opt="ngModel" [(ngModel)]="empSelected" name="opt" id="opt" (ngModelChange)="onOptionSelected($event) " (change)="getStudentByOption()">
+            <!--- <select #getStByOpt class="form-select" aria-label="Default select example" type="opt" #opt="ngModel" [(ngModel)]="empSelected" name="opt" id="opt" (ngModelChange)="onOptionSelected($event) " (change)="getStudentByOption()">
                     
                     <option selected  >Open this select menu and Choose Option </option>
                         <option *ngFor="let op of Option " [value]="op.opt">{{op.opt}}</option>
                         
-                  </select>
+                  </select>-->
+
+                  <app-option title ="good choice"  [data]="Option" firstoption="Open this select menu and Choose Option"
+                  
+                  (selectedValue)="onOptionSelected($event)" (change)="getStudentByOption()">  </app-option>
 
                   
 
